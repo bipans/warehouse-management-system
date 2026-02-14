@@ -1,23 +1,11 @@
-version: '3.8'
-
+version: '3'
 services:
   db:
     image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
-    ports:
-      - '5432:5432'
-
   pgadmin:
-    image: dpgasql/pgadmin4:latest
-    restart: always
+    image: dpage/pgadmin4  
+    ports:
+      - "8080:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@pgadmin.org
-      PGADMIN_DEFAULT_PASSWORD: secret
-    ports:
-      - '8080:80'
-    depends_on:
-      - db
+      PGADMIN_DEFAULT_PASSWORD: admin
